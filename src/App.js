@@ -5,6 +5,8 @@ import Filter from "./components/Filter";
 import styles from "./App.module.css"
 import shortid from 'shortid';
 
+import CounterView from './views/CounterView';
+
 class App extends Component { 
     state = {
         contacts: [
@@ -83,6 +85,7 @@ class App extends Component {
                     <ContactList phoneBook={seachContact} onDeleteContact={this.deleteContact}/>
                     }  
                 </div>
+                <CounterView />
             </div>
         )
     }
