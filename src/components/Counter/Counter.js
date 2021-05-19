@@ -9,20 +9,19 @@ function Counter({ value, step, onIncrement, onDecrement }) {
   return (
     <div className="Counter">
       <Value value={value} />
-      {/* <Controls
+      <Controls
         step={step}
         onIncrement={() => onIncrement(step)}
         onDecrement={() => onDecrement(step)}
-      /> */}
+      />
       Counter
     </div>
   );
 }
 
 const mapStateToProps = state => ({
-    value: state.counterValue,
-//   value: state.counter.value,
-//   step: state.counter.step,
+  value: state.counter.value,
+  step: state.counter.step,
 });
 
 const mapDispatchToProps = dispatch => ({
