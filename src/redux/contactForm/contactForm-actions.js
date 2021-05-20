@@ -1,7 +1,7 @@
 import types from './contactForm-types';
 import shortid from 'shortid';
 
-const addContact = ( name, number ) => ({
+const addContact = ({ name, number }) => ({
     type: types.ADD,
     payload: {
         name,
@@ -10,8 +10,14 @@ const addContact = ( name, number ) => ({
     }
 });
 
-export default { addContact };
+const deleteContact = contactId => ({
+    type: types.DELETE,
+    payload: contactId,
+})
 
-// const deleteContact = (contactId) => {
+const searchByFilter = (value) => ({
+    type: types.SEARCH_BY_FILTER,
+    payload: value,
+})
 
-// }
+export default { addContact, deleteContact, searchByFilter };
