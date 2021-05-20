@@ -9,14 +9,14 @@ class App extends Component {
     state = {
     };
 
-    componentDidMount() {
-        const contacts = localStorage.getItem('contacts');
-        const parsedContacts = JSON.parse(contacts);
+    // componentDidMount() {
+    //     const contacts = localStorage.getItem('contacts');
+    //     const parsedContacts = JSON.parse(contacts);
 
-        if (parsedContacts) {
-            this.setState({ contacts: parsedContacts})
-        }
-    }
+    //     if (parsedContacts) {
+    //         this.setState({ contacts: parsedContacts})
+    //     }
+    // }
 
     // componentDidUpdate(prevProps, prevState) {
     //     const nextContacts = this.state.contacts;
