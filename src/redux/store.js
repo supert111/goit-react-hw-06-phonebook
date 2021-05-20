@@ -38,6 +38,14 @@ const rootReducer = combineReducers({
 //     }
 // }
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(rootReducer, composeWithDevTools(), persistedState);
 
+store.subscribe(()=>{
+    localStorage.setItem('contacts', JSON.stringify(store.getState()))
+  })
+
+const persistedState = localStorage.getItem('contacts') 
+                     ? JSON.parse(localStorage.getItem('contacts'))
+                     : {}
+                     
 export default store;
