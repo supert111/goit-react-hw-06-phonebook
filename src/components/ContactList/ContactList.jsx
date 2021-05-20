@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styles from './ContactList.module.css';
+import actions from '../../redux/contactForm/contactForm-actions';
 
 const ContactList = ({ phoneBook, onDeleteContact }) => {
     return (
         <>
             <ul>
-                {/* {phoneBook.map(nameContact => (
+                {phoneBook.map(nameContact => (
                      <li className={styles.contact} key={nameContact.id}>{nameContact.name}: {nameContact.number}
                      <button className={styles.button} type="button" onClick={()=>onDeleteContact(nameContact.id)}>Delete</button>
                      </li>
-                ))} */}
+                ))}
             </ul>
         </>
     )
@@ -25,6 +27,14 @@ ContactList.propTypes = {
       }),
     ),
     onDeleteContact: PropTypes.func.isRequired,
-  };
+};
 
-export default ContactList;
+const mapStateToProps = state => ({
+  phoneBook: state.state.contacts,
+})
+
+const mapDispatchProps = dispatch => ({
+  onDeleteContact: (id) => dispatch(actions.deleteContact(id)),
+})
+
+export default connect(mapStateToProps, mapDispatchProps)(ContactList);

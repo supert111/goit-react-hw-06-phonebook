@@ -53,11 +53,11 @@ class App extends Component {
     //     }         
     // };
 
-    deleteContact = (contactId) => {
-        this.setState(({ contacts }) => ({
-            contacts: contacts.filter(contact => contact.id !== contactId)
-        }))
-    };
+    // deleteContact = (contactId) => {
+    //     this.setState(({ contacts }) => ({
+    //         contacts: contacts.filter(contact => contact.id !== contactId)
+    //     }))
+    // };
     
     handleFilter = (element) => {
         const { value } = element.target;
@@ -79,13 +79,11 @@ class App extends Component {
                 <div className={styles.wrapper}>
                     <h1>Phonebook</h1>
                     <ContactForm /> 
-                    {/* onSubmit={this.addContact} */}
                     <h2>Contacts</h2>
-                    <Filter onChange={this.handleFilter}/>
+                    <Filter />
                     {/* {this.state.contacts.length !== 0 &&  */}
                     
-                    <ContactList onDeleteContact={this.deleteContact}/>
-                    {/* <ContactList phoneBook={seachContact} onDeleteContact={this.deleteContact}/> */}
+                    <ContactList />
                     {/* }   */}
                 </div>
                 {/* <CounterView /> */}
