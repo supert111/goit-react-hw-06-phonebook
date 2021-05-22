@@ -9,7 +9,18 @@ const contacts = (state = [
 ], {type, payload}) => {
     switch(type) {
         case types.ADD:
-            return [...state, payload];
+            const duplicateName = state.find(contact => contact.name.toLowerCase() === payload.name.toLowerCase());
+            if(duplicateName) {
+                alert(`${payload.name} is already in contacts.`);
+                return state;
+            }
+
+            if(payload.name === "") {
+                alert(`Please fill out the form it is empty.`);
+            }
+
+            return [payload, ...state,];
+
 
         case types.DELETE:
             return state.filter(({id}) => id !== payload)
