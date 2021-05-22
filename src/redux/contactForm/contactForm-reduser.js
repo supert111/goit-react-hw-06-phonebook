@@ -20,6 +20,11 @@ const contacts = createReducer([
             return state;
         }
 
+        if(payload.number === "") {
+            alert(`Please fill out the form with your phone number, it is empty.`);
+            return state;
+        }
+
         return [payload, ...state,];
     },
     [actions.deleteContact]: (state, { payload }) => (state.filter(({id}) => id !== payload)),
