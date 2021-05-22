@@ -1,18 +1,15 @@
 import { createAction } from '@reduxjs/toolkit';
-import types from './contactForm-types';
 import shortid from 'shortid';
 
-const addContact = createAction(types.ADD, ({name, number}) => {
-    return {
-        payload: {
-            name,
-            number, 
-            id: shortid.generate(),
-        }
+const addContact = createAction('contact/Add', ({name, number}) => ({
+    payload: {
+        name,
+        number, 
+        id: shortid.generate(),
     }
-});
-const deleteContact = createAction(types.DELETE);
-const searchByFilter = createAction(types.SEARCH_BY_FILTER);
+}));
+const deleteContact = createAction('contact/Delete');
+const searchByFilter = createAction('contact/SearchByFilter');
 
 export default { addContact, deleteContact, searchByFilter };
 
