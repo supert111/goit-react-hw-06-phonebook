@@ -17,6 +17,7 @@ const contacts = createReducer([
 
         if(payload.name === "") {
             alert(`Please fill out the form it is empty.`);
+            return state;
         }
 
         return [payload, ...state,];
