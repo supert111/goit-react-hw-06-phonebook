@@ -14,8 +14,6 @@ class App extends Component {
         this.setState ({ filter: value });  
     };
 
-
-
     render() {
         return (
             <div className={styles.container}>
