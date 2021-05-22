@@ -1,19 +1,29 @@
-// import { enableES5 } from 'immer';
-import { combineReducers } from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
-//import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import contactReducer from './contactForm/contactForm-reduser';
-// enableES5();
+import logger from 'redux-logger';
 
-const rootReducer = combineReducers({
-    state: contactReducer,
-})
+const middleware = [...getDefaultMiddleware(), logger]
+
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    state: contactReducer,
+  },
+  middleware,
+  devTools: process.env.NODE_ENV === 'development',
 });
+export default store;
 
+////////////////////////////////////////////////////////////////////////
+//redux
 
-//import { createStore, combineReducers } from 'redux';
+// import { createStore, combineReducers } from 'redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import contactReducer from './contactForm/contactForm-reduser';
+
+// const rootReducer = combineReducers({
+//   state: contactReducer,
+// })
+
 // const persistedState = localStorage.getItem('contacts') 
 //                      ? JSON.parse(localStorage.getItem('contacts'))
 //                      : {};
@@ -24,4 +34,4 @@ const store = configureStore({
 //   localStorage.setItem('contacts', JSON.stringify(store.getState()))
 // })
                      
-export default store;
+// export default store;
